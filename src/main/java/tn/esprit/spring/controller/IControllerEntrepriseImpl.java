@@ -18,6 +18,7 @@ public class IControllerEntrepriseImpl{
 	@Autowired
 	IEntrepriseService ientrepriseservice;
 	
+	
 	public int ajouterEntreprise(Entreprise ssiiConsulting) {
 		ientrepriseservice.ajouterEntreprise(ssiiConsulting);
 		return ssiiConsulting.getId();
