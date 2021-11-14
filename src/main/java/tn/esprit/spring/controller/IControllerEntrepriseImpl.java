@@ -19,6 +19,7 @@ public class IControllerEntrepriseImpl{
 	IEntrepriseService ientrepriseservice;
 	
 	
+	
 	public int ajouterEntreprise(Entreprise ssiiConsulting) {
 		ientrepriseservice.ajouterEntreprise(ssiiConsulting);
 		return ssiiConsulting.getId();
