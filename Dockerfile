@@ -1,5 +1,7 @@
-FROM mcr.microsoft.com/windows/nanoserver:1903
-ADD target/Timesheet-spring-boot-core-data-jpa-mvc-REST-1-0.0.1-SNAPSHOT.war app.war
+FROM openjdk:8-jdk-alpine
+EXPOSE 8082
+ADD target/Timesheet-spring-boot-core-data-jpa-mvc-REST-1-1.0.war app.war
 ENTRYPOINT ["java","-jar","app.war"]
 
 EXPOSE 8083
+
