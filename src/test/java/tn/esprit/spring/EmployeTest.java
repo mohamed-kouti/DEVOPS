@@ -2,6 +2,7 @@ package tn.esprit.spring;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 
 
 import static org.junit.Assert.assertTrue;
@@ -65,23 +66,32 @@ public class EmployeTest {
 
 	@Test
 	public void ajouterEmploye() {
-		
 		assertTrue("ajout employer echouer", employeRepository.findById(employeId).isPresent());
 	}
 
 	@Test
 	public void mettreAjourEmailByEmployeId() {
 		employeService.mettreAjourEmailByEmployeId("ahmed@esprit.tn", employeId);
-		 String mail=employeRepository.findById(employeId).orElseThrow(null).getEmail();
-		assertEquals("fail to add  new employe", "ahmed@esprit.tn",mail);
+		assertEquals("fail to add  new employe", "ahmed@esprit.tn", employeRepository.findById(employeId).orElseThrow(null).getEmail());
 	}
     
-	
+	@Test
+	public void affecterEmployeADepartement() {
+		assertTrue("affectation employer a departement echouer",
+				employeService.affecterEmployeADepartement(employeId, depId));
+	}
+	@Test
+	public void desaffecterEmployeDuDepartement()
+	{
+		
+		assertTrue("desaffecter employer a departement echouer", employeService.desaffecterEmployeDuDepartement(employeId, depId));
+	}
     
 	@Test
 	public void ajouterContrat() {
-		assertTrue("échouer pour ajouter Contrat",
-				contratRepository.findById(idC).isPresent());
+		
+		
+		assertNotEquals("échouer pour ajouter Contrat",0,idC);
 	}
 
 	@Test
@@ -90,7 +100,7 @@ public class EmployeTest {
 		employeService.affecterContratAEmploye(contratId, employeId);
 		Employe e=employeRepository.findById(employeId).orElseThrow(null);
 		assertEquals("affectation contrat a employer echouer",
-				e.getContrat().getReference(), contratId);
+				e.getContrat().getReference() , contratId);
 	}
 
 	@Test

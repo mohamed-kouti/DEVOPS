@@ -65,7 +65,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	@Transactional
-	public void affecterEmployeADepartement(int employeId, int depId) {
+	public Boolean affecterEmployeADepartement(int employeId, int depId) {
 		try {
 			logger.info("je suis dans affecterEmployeADepartement");
 			Departement depManagedEntity = deptRepoistory.findById(depId).orElseThrow(null);
@@ -83,14 +83,16 @@ public class EmployeServiceImpl implements IEmployeService {
 				depManagedEntity.getEmployes().add(employeManagedEntity);
 
 			}
+			return true;
 		} catch (Exception e) {
 			logger.error("erreur dans affecterEmployeADepartement:" + e);
+			return false;
 		}
 
 	}
 
 	@Transactional
-	public void desaffecterEmployeDuDepartement(int employeId, int depId) {
+	public Boolean desaffecterEmployeDuDepartement(int employeId, int depId) {
 		try {
 			logger.info("je suis dans desaffecterEmployeDuDepartement");
 			Departement dep = deptRepoistory.findById(depId).orElseThrow(null);
@@ -104,8 +106,10 @@ public class EmployeServiceImpl implements IEmployeService {
 				}
 				logger.info("je viens de finir l'operation desaffecterEmployeDuDepartement");
 			}
+			return true;
 		} catch (Exception e) {
 			logger.error("erreur dans desaffecterEmployeDuDepartement:" + e);
+			return false;
 		}
 
 	}
