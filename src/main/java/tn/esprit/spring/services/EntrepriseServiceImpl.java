@@ -101,6 +101,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	public Entreprise getEntrepriseById(int entrepriseId) {
 		l.info("in getEntrepriseById");
 		return entrepriseRepoistory.findById(entrepriseId).orElse(null);
+		//test
 
 	}
 
