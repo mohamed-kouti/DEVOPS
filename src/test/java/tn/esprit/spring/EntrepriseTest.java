@@ -17,6 +17,8 @@ public class EntrepriseTest {
 	@Autowired
 	IEntrepriseService ie;
 
+//test
+
 	@Test
 	public void ajouterEntrepriseTest() {
 		Entreprise e = new Entreprise("test", "testtest");
