@@ -95,6 +95,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 			deptRepoistory.deleteById(deptRepoistory.findById(depId).orElse(null));
 		} catch (Exception e) {
 			l.error("erreur dans deleteDepartementById");
+			//test
 		}
 	}
 
