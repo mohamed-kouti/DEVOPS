@@ -18,7 +18,7 @@ public class EntrepriseTest {
 	IEntrepriseService ie;
 
 
-
+//test
 	@Test
 	public void ajouterEntrepriseTest() {
 		Entreprise e = new Entreprise("test", "testtest");
